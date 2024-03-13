@@ -10,7 +10,9 @@ class ClienteController extends Controller
 {
     public function index()
     {
-        return view('cliente.index');
+        $clientes = Cliente::orderBy("id")->get();
+
+        return view('cliente.index', ['clientes' => $clientes]);
     }
 
     public function create()
