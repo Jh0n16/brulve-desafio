@@ -27,9 +27,9 @@ class ClienteController extends Controller
         return redirect()->route('cliente.index')->with("mensagem", "Cliente cadastrado com sucesso!");
     }
 
-    public function show()
+    public function show(Cliente $cliente)
     {
-
+        return view("cliente.show", ["cliente" => $cliente]);
     }
 
     public function edit()
