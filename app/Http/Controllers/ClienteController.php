@@ -51,8 +51,10 @@ class ClienteController extends Controller
         return redirect()->route('cliente.index')->with("mensagem", "Detalhes do cliente de id={$cliente->id} alterados com sucesso!");
     }
 
-    public function destroy()
+    public function destroy(Cliente $cliente)
     {
+        $cliente->delete();
 
+        return redirect()->route('cliente.index')->with("mensagem", "Cliente excluido com sucesso!");
     }
 }

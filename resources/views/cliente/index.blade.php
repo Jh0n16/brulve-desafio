@@ -5,7 +5,7 @@
 
 @section('conteudo-principal')
     @if(session('mensagem'))
-        <div class="alert alert-dark">
+        <div class="alert alert-info" id="alertas">
             <p>{{ session('mensagem') }}</p>
         </div>
     @endif
@@ -30,9 +30,13 @@
                     <td>{{ $cliente->id }} </td>
                     <td><a href="{{ route("cliente.show", ["cliente" => $cliente->id]) }}"> {{ $cliente->nome }} </a></td>
                     <td> {{ $cliente->email }} </td>
-                    <td>
-                        <a href="{{ route("cliente.destroy") }}">Excluir</a>
-                        <a href="{{ route("cliente.edit", ["cliente" => $cliente->id]) }}">Editar</a>
+                    <td class="d-flex">
+                        <a class="btn btn-primary me-2" href="{{ route("cliente.edit", ["cliente" => $cliente->id]) }}">Editar</a>
+                        <form action="{{ route('cliente.destroy', ["cliente" => $cliente->id]) }}" method="POST">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
                     </td>
 
                 </tr>
