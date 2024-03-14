@@ -20,7 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get('clientes/', [ClienteController::class, 'index'])->name('cliente.index');
-Route::get('clientes/create/', [ClienteController::class, 'create'])->name('cliente.create');
 Route::post('clientes/store/', [ClienteController::class, 'store'])->name('cliente.store');
 Route::get('clientes/show/{cliente}', [ClienteController::class, 'show'])->name('cliente.show');
 Route::get('clientes/edit/{cliente}', [ClienteController::class, 'edit'])->name('cliente.edit');
