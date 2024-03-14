@@ -14,11 +14,6 @@ class ClienteController extends Controller
         return view('cliente.index', ['clientes' => $clientes]);
     }
 
-    public function create()
-    {
-        return view('cliente.create');
-    }
-
     public function store(ClienteRequest $request)
     {
         Cliente::create($request->all());
