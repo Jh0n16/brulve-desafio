@@ -32,7 +32,7 @@
                     <td> {{ $cliente->email }} </td>
                     <td>
                         <a href="{{ route("cliente.destroy") }}">Excluir</a>
-                        <a href="{{ route("cliente.edit") }}">Editar</a>
+                        <a href="{{ route("cliente.edit", ["cliente" => $cliente->id]) }}">Editar</a>
                     </td>
 
                 </tr>
