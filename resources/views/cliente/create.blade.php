@@ -4,15 +4,6 @@
 @endsection
 
 @section('conteudo-principal')
-
-    @if($errors->any())
-        <div class="alert alert-dark">
-            @foreach($errors->any() as $erro)
-                <p> {{ $erro }} </p>
-            @endforeach
-        </div>
-    @endif
-
     <form action="{{ route("cliente.store") }}" method="POST">
         @csrf
         <div class="row">

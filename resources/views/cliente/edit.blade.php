@@ -4,15 +4,6 @@
 @endsection
 
 @section('conteudo-principal')
-
-    @if($errors->any())
-        <div class="alert alert-dark">
-            @foreach($errors->any() as $erro)
-                <p> {{ $erro }} </p>
-            @endforeach
-        </div>
-    @endif
-
     <form action="{{ route("cliente.update", ["cliente" => $cliente->id]) }}" method="POST">
         @csrf
         @method("PUT")
@@ -35,7 +26,8 @@
             </div>
 
         </div>
-        <input type="submit" value="Enviar" class="btn btn-success">
+        <input type="submit" value="Enviar" class="btn btn-success grid gap-3">
+        <a href="{{ route('cliente.index') }}" class=" btn btn-primary">Voltar</a>
 
     </form>
     
