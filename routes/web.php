@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\EnderecoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,10 @@ Route::get('clientes/show/{cliente}', [ClienteController::class, 'show'])->name(
 Route::get('clientes/edit/{cliente}', [ClienteController::class, 'edit'])->name('cliente.edit');
 Route::put('clientes/update/{cliente}', [ClienteController::class, 'update'])->name('cliente.update');
 Route::delete('clientes/destroy/{cliente}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
+
+Route::get('ederecos/', [EnderecoController::class, 'index'])->name('endereco.index');
+Route::post('endereco/store/', [EnderecoController::class, 'store'])->name('endereco.store');
+Route::get('endereco/show/{cliente}', [EnderecoController::class, 'show'])->name('endereco.show');
+Route::get('endereco/edit/{cliente}', [EnderecoController::class, 'edit'])->name('endereco.edit');
+Route::put('endereco/update/{cliente}', [EnderecoController::class, 'update'])->name('endereco.update');
+Route::delete('endereco/destroy/{cliente}', [EnderecoController::class, 'destroy'])->name('endereco.destroy');
