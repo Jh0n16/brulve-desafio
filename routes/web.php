@@ -26,7 +26,7 @@ Route::get('clientes/edit/{cliente}', [ClienteController::class, 'edit'])->name(
 Route::put('clientes/update/{cliente}', [ClienteController::class, 'update'])->name('cliente.update');
 Route::delete('clientes/destroy/{cliente}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
 
-Route::get('ederecos/', [EnderecoController::class, 'index'])->name('endereco.index');
+Route::get('enderecos/', [EnderecoController::class, 'index'])->name('endereco.index');
 Route::post('endereco/store/', [EnderecoController::class, 'store'])->name('endereco.store');
 Route::get('endereco/show/{cliente}', [EnderecoController::class, 'show'])->name('endereco.show');
 Route::get('endereco/edit/{cliente}', [EnderecoController::class, 'edit'])->name('endereco.edit');
