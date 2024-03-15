@@ -12,9 +12,31 @@
 
     <section>
         <h2>Endereços do cliente: {{ $cliente->nome }}</h2>
-        @foreach($enderecos as $endereco)
-            <p>{{ $endereco->logradouro }}, N° {{ $endereco->numero }}, {{ $endereco->cidade }}, {{ $endereco->estado }}, {{ $endereco->cep }}</p>  
-        @endforeach
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Endereço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($enderecos as $endereco)
+                    <tr>
+                        <td> {{ $endereco->id }} </td>
+                        <td>
+                            {{ $endereco->logradouro }}, N° {{ $endereco->numero }}, {{ $endereco->cidade }}, {{ $endereco->estado }}, {{ $endereco->cep }}
+                        </td>
+                        <td>
+                            <a href="#">Editar</a>
+                            <a href="#">Excluir</a>
+                        </td>
+                    </tr>
+                @endforeach
+
+
+            </tbody>
+        </table>
     </section>
 
     <div class="modal fade" id="inserirEndereco" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="inserirEnderecoLabel" aria-hidden="true">
@@ -32,25 +54,26 @@
                         <div class="row">
                             <div class="col">
                                 <label for="logradouro">Logradouro: </label>
-                                <input type="text" name="logradouro" id="logradouro">
+                                <input type="text" name="logradouro" id="logradouro" value="{{ old('logradouro') }}">
         
                                 <label for="numero">Número: </label>
-                                <input type="text" name="numero" id="numero">
+                                <input type="text" name="numero" id="numero" value="{{ old('numero') }}">
                                 
                                 <label for="bairro">Bairro: </label>
-                                <input type="text" name="bairro" id="bairro">
-    
+                                <input type="text" name="bairro" id="bairro" value="{{ old('bairro') }}">
+                                
+                                <input type="submit" value="Enviar" class="btn btn-success">
                             </div>
                             
                             <div class="col">
                                 <label for="cidade">Cidade: </label>
-                                <input type="text" name="cidade" id="cidade">
+                                <input type="text" name="cidade" id="cidade" value="{{ old('cidade') }}">
         
                                 <label for="estado">Estado: </label>
-                                <input type="text" name="estado" id="estado" placeholder="Ex. RJ">
+                                <input type="text" name="estado" id="estado" placeholder="Ex. RJ" value="{{ old('estado') }}">
         
                                 <label for="cep">CEP: </label>
-                                <input type="text" name="cep" id="cep">
+                                <input type="text" name="cep" id="cep" value="{{ old('cep') }}">
         
                             </div>
                             <input type="hidden" name="cliente_id" value="{{ $cliente->id }}">

@@ -15,9 +15,16 @@
     </head>
     <body>
         @if(session('mensagem'))
-            <div class="alert alert-info" id="alertas">
+            <div class="alert alert-info">
                 <p>{{ session('mensagem') }}</p>
             </div>
+        @elseif($errors->any())
+            <div class="alert alert-info">
+                @foreach($errors->all() as $erro)
+                    <p>{{ $erro }}</p>
+                @endforeach
+            </div>
+
         @endif
         
         <main>
