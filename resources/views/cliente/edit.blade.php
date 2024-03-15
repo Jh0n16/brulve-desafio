@@ -26,8 +26,10 @@
             </div>
 
         </div>
-        <input type="submit" value="Enviar" class="btn btn-success grid gap-3">
-        <a href="{{ route('cliente.index') }}" class=" btn btn-primary">Voltar</a>
+        <div class="mt-2">
+            <input type="submit" value="Enviar" class="btn btn-success grid gap-3">
+            <a href="{{ route('cliente.index') }}" class=" btn btn-primary">Voltar</a>
+        </div>
 
     </form>
     

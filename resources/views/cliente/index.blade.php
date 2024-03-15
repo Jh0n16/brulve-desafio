@@ -4,48 +4,50 @@
 @endsection
 
 @section('conteudo-principal')
-    <nav>
+    <nav class="navbar navbar-expand-lg mb-3">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inserirCliente">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#inserirCliente">
             Inserir cliente
         </button>
     </nav>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach($clientes as $cliente)
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
                 <tr>
-                    <td>{{ $cliente->id }} </td>
-                    <td><a href="{{ route("cliente.show", ["cliente" => $cliente->id]) }}"> {{ $cliente->nome }} </a></td>
-                    <td> {{ $cliente->email }} </td>
-                    <td class="d-flex">
-                        <a class="btn btn-primary me-2" href="{{ route("cliente.edit", ["cliente" => $cliente->id]) }}">Editar</a>
-                        <form action="{{ route('cliente.destroy', ["cliente" => $cliente->id]) }}" method="POST">
-                            @csrf
-                            @method("DELETE")
-                            <button type="submit" class="btn btn-danger">Excluir</button>
-                        </form>
-                    </td>
-
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Ações</th>
                 </tr>
-            @endforeach
-        </tbody>
-        
-    </table>
+            </thead>
+    
+            <tbody>
+                @foreach($clientes as $cliente)
+                    <tr>
+                        <td>{{ $cliente->id }} </td>
+                        <td><a href="{{ route("cliente.show", ["cliente" => $cliente->id]) }}"> {{ $cliente->nome }} </a></td>
+                        <td> {{ $cliente->email }} </td>
+                        <td class="d-flex">
+                            <a class="btn btn-primary me-2" href="{{ route("cliente.edit", ["cliente" => $cliente->id]) }}">Editar</a>
+                            <form action="{{ route('cliente.destroy', ["cliente" => $cliente->id]) }}" method="POST">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit" class="btn btn-danger">Excluir</button>
+                            </form>
+                        </td>
+    
+                    </tr>
+                @endforeach
+            </tbody>
+            
+        </table>
 
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="inserirCliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="inserirClieteLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-fullscreen-md-down">
             <div class="modal-content">
 
                 <div class="modal-header">
@@ -74,7 +76,7 @@
                             </div>
 
                         </div>
-                        <input type="submit" value="Enviar" class="btn btn-success">
+                        <input type="submit" value="Enviar" class="btn btn-success mt-2">
                     </form>
                 </div>
 

@@ -15,11 +15,11 @@
     </head>
     <body>
         @if(session('mensagem'))
-            <div class="alert alert-info">
+            <div class="alert alert-info m-3 text-center">
                 <p>{{ session('mensagem') }}</p>
             </div>
         @elseif($errors->any())
-            <div class="alert alert-info">
+            <div class="alert alert-info m-3 text-center">
                 @foreach($errors->all() as $erro)
                     <p>{{ $erro }}</p>
                 @endforeach
@@ -27,7 +27,7 @@
 
         @endif
         
-        <main>
+        <main class="container-fluid">
             @yield('conteudo-principal')
         </main>
 
