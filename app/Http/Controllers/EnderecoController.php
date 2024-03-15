@@ -18,26 +18,27 @@ class EnderecoController extends Controller
     {
         Endereco::create($request->all());
 
-        return redirect()->route("endereco.index", ["cliente" => $request->cliente_id])->with("menagem", "Endereço cadatrado com sucesso!");
+        return redirect()->route("endereco.index", ["cliente" => $request->cliente_id])->with("mensagem", "Endereço cadatrado com sucesso!");
     }
 
-    public function show()
+    public function edit(Endereco $endereco)
     {
-        
+        return view("endereco.edit", ["endereco" => $endereco]);
     }
 
-    public function edit()
+    public function update(EnderecoRequest $request, Endereco $endereco)
     {
+        $request->validated();
+        $endereco->update($request->all());
 
+        return redirect()->route("endereco.index", ['cliente' => $endereco->cliente_id])->with("mensagem", "Endereço alterado com sucesso!");
     }
 
-    public function update()
-    {
+    public function destroy(Endereco $endereco)
+    {   
+        $clienteId = $endereco->cliente_id;
+        $endereco->delete();
 
-    }
-
-    public function destroy()
-    {
-
+        return redirect()->route("endereco.index", ['cliente' => $clienteId])->with("mensagem", "Endereço deletado com sucesso!");
     }
 }

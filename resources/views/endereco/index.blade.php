@@ -25,11 +25,16 @@
                     <tr>
                         <td> {{ $endereco->id }} </td>
                         <td>
-                            {{ $endereco->logradouro }}, N° {{ $endereco->numero }}, {{ $endereco->cidade }}, {{ $endereco->estado }}, {{ $endereco->cep }}
+                            {{ $endereco->logradouro }}, N° {{ $endereco->numero }}, {{ $endereco->bairro }}, {{ $endereco->cidade }} - {{ $endereco->estado }}, {{ $endereco->cep }}
                         </td>
-                        <td>
-                            <a href="#">Editar</a>
-                            <a href="#">Excluir</a>
+                        <td class="flex">
+                            <a class="btn btn-primary" href="{{ route('endereco.edit', ["endereco" => $endereco]) }}">Editar</a>
+                            <form action="{{ route("endereco.destroy", ["endereco" => $endereco->id]) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+
+                                <button class="btn btn-danger" type="submit">Excluir</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
