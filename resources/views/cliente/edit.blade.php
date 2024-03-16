@@ -15,6 +15,12 @@
 
                 <label for="sobrenome" class="form-label">Sobrenome: </label>
                 <input type="text" name="sobrenome" id="sobrenome" class="form-control" value="{{ old("sobrenome", $cliente->sobrenome) }}" required>
+                
+                <label for="tipo" class="form-label">Tipo de cliente: </label>
+                <select name="tipo" id="tipo" class="form-select">
+                    <option value="fisico">Pessoa Física</option>
+                    <option value="juridico">Pessoa Jurídica</option>
+                </select>
             </div>
 
             <div class="col">

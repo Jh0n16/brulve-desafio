@@ -38,6 +38,7 @@ class ClienteController extends Controller
         $cliente->update([
             "nome" => $request->nome,
             "sobrenome" => $request->sobrenome,
+            "tipo" => $request->tipo,
             "dataDeNascimento" => $request->dataDeNascimento,
             "email" => $request->email
         ]);

@@ -15,10 +15,22 @@
                 <p class="lead">{{ $cliente->id }}</p>
             </dd>
             
+            <dt class="col-sm-3">Tipo: </dt>
+            <dd class="col-sm-9">
+                <p class="lead">
+                    @if($cliente->tipo === 'fisico')
+                        Pessoa Física
+                    @elseif($cliente->tipo === 'juridico')
+                        Pessoa Jurídica
+                    @endif
+                </p>
+                
             <dt class="col-sm-3">Nome: </dt>
             <dd class="col-sm-9">
                 <p class="lead">{{ $cliente->nome }}</p>
                 
+            </dd>
+            
             </dd>
             <dt class="col-sm-3">Sobrenome: </dt>
             <dd class="col-sm-9">

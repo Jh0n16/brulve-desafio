@@ -24,6 +24,7 @@ class ClienteRequest extends FormRequest
         return [
             "nome" => "required",
             "sobrenome" => "required",
+            "tipo" => "required",
             "dataDeNascimento" => "required",
             "email" => "required",
 
@@ -37,6 +38,7 @@ class ClienteRequest extends FormRequest
             "sobrenome.required" => "O sobrenome é obrigatório!",
             "dataDeNascimento.required" => "A data de nascimento é obrigatória!",
             "email.required" => "O email é obrigatório!",
+            "tipo.required" => "O tipo de cliente é obrigatório!"
         ];
     }
 }
