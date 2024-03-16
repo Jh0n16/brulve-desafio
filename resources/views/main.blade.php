@@ -18,11 +18,13 @@
             <div class="alert alert-info m-3 text-center">
                 <p>{{ session('mensagem') }}</p>
             </div>
+
         @elseif($errors->any())
-            <div class="alert alert-info m-3 text-center">
+            <div class="alert alert-danger m-3 text-center">
                 @foreach($errors->all() as $erro)
                     <p>{{ $erro }}</p>
                 @endforeach
+                
             </div>
 
         @endif

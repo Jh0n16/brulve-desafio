@@ -9,6 +9,20 @@
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#inserirCliente">
             Inserir cliente
         </button>
+
+        <div class="collapse navbar-collapse"></div>
+
+        @auth
+            <div class="dropdown align-self-end">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Olá {{ auth()->user()->name }}
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ route('login.logout') }}">Sair</a></li>
+                </ul>
+            </div>
+        @endauth
+
     </nav>
 
     <div class="table-responsive">
